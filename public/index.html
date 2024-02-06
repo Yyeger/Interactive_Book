@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Carousel Template · Bootstrap v5.2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
+
+    <script src="public/functions.js"></script>
+
+
+    <!-- grafico a torta-->
+    <script type="text/javascript" src="public/a_data/jquery-git.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="public/a_data/result-light.css">
+
+      <link rel="stylesheet" type="text/css" href="public/a_data/jquery-ui.css">
+      <script type="text/javascript" src="public/a_data/jquery-1.js"></script>
+      <script type="text/javascript" src="public/a_data/jquery-ui.js"></script>
+      <link rel="stylesheet" type="text/css" href="public/a_data/style.css">
+      <script type="text/javascript" src="public/a_data/Chart.js"></script>
+      <link rel="stylesheet" id="compiled-css" type="text/css" href="/public/torta.css">
+
+
+
+
+    <!-- fine grafico a torta-->
+
+
+
+    
+
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="public/carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    <script> 
+    function fixmode() {if (localStorage.getItem('mode') == 'dark') {darkmode();localStorage.setItem('mode', 'dark');
+     var elements = document.getElementsByClassName('carousel-caption');
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].style.color = "#ffffff";
+        }
+      } else {
+        var elements = document.getElementsByClassName('carousel-caption');
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].style.color = "#000000";
+        }
+      }}
+      
+      
+      document.addEventListener("DOMContentLoaded", function(event) {
+      fixmode(); 
+      });
+      </script>
+    <script> if (localStorage.getItem('font') == 'dyslexic') {dyslexicfont();localStorage.setItem('font', 'dyslexic');} </script>
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <li class="nav-item justify-content-right">
+            <a href="http://127.0.0.1:8080/"><button class="btn btn-dark">Home</button></a>
+          </li>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+        <ul class="navbar-nav mb-2 mb-md-0">
+          <li class="nav-item">
+            <button onclick="dyslexicfont()" type="button" class="btn btn-dark">Dyslexic Font</button>
+          </li>
+          <li class="nav-item">
+            <button id="darkmodeid" onclick="darkmode()" type="button" class="btn btn-dark">Dark Mode</button>
+          </li>
+          <li class="nav-item">
+            <button onclick="daltoniccolours()" type="button" class="btn btn-dark">Daltonic Colours</button>
+          </li>
+        </ul>
+      </div>
+      <li class="nav-item justify-content-right">
+            <a href="http://127.0.0.1:8080/ENG"><button class="btn btn-dark">ENG</button></a>
+      </li>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <div class="position-relative overflow-hidden p-3 p-md-5 text-center oppa ">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+      <p class="lead fw-normal white-title">Leggi e interagisci con il web-book per potenziare il tuo apprendimento!</p>
+    </div>
+    <div class="product-device shadow-sm d-none d-md-block"></div>
+    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+  </div>
+
+  <div id="myCarousel" class="carousel slide" data-bs-interval="false">
+
+    <div class="carousel-inner">
+      
+      <div class="carousel-item active">
+        <div class="container">
+          <!-- inizio test dei grafici-->
+
+          <pre class="title"> Produzione di CO2 a livello globale
+          </pre>
+
+
+            <h3 style="white-space: pre-line">I livelli di produzione di anidride carbonica (CO2) variano significativamente da paese a paese a causa di diversi fattori, tra cui la dimensione della popolazione, la struttura industriale, l'uso dell'energia e la politica ambientale. Tuttavia, è importante notare che questi dati possono cambiare nel tempo a causa di cambiamenti nelle politiche, nei modelli di consumo energetico e in altri fattori. 
+
+            Nel complesso, i paesi industrializzati tendono ad avere emissioni di CO2 più elevate rispetto a quelli in via di sviluppo, ma ci sono eccezioni. Ecco alcune informazioni generali sui livelli di produzione di CO2 nei paesi del mondo:
+
+            Cina: La Cina è spesso identificata come il principale emettitore di CO2 a livello globale a causa della sua vasta popolazione e dell'intensa attività industriale. Tuttavia, il paese sta adottando misure significative per ridurre le emissioni e aumentare l'uso di energie rinnovabili.
+
+            Stati Uniti: Gli Stati Uniti sono storicamente stati tra i principali emettitori di CO2, in particolare a causa della loro economia avanzata e del consumo di energia. Tuttavia, negli ultimi anni, c'è stata una diminuzione delle emissioni grazie all'aumento dell'uso di energie rinnovabili e a misure di efficienza energetica.
+
+            Unione Europea: Gli stati membri dell'Unione Europea hanno generalmente emissioni di CO2 inferiori rispetto a paesi con economie simili grazie all'adozione di politiche ambientali più rigorose e all'investimento nelle energie rinnovabili.
+
+            India: Mentre l'India è in rapida crescita economica, le sue emissioni pro capite sono inferiori rispetto ai paesi industrializzati. Tuttavia, le emissioni totali sono significative a causa della sua vasta popolazione.
+
+            Paesi in via di sviluppo: Alcuni paesi in via di sviluppo hanno basse emissioni di CO2, ma stanno affrontando sfide nella gestione della crescita economica e nello sviluppo sostenibile.
+
+            È importante consultare fonti aggiornate per ottenere i dati più recenti sui livelli di produzione di CO2 nei vari paesi, poiché la situazione può evolvere rapidamente a causa di cambiamenti nelle politiche e nelle tecnologie.</h3>
+
+
+            <h3 style="white-space: pre-line">
+              Le principali fonti di emissione di anidride carbonica (CO2) sono legate all'attività umana, in particolare all'uso di combustibili fossili e a determinate pratiche industriali. Di seguito sono elencate alcune delle principali fonti di produzione di CO2:
+
+              Combustibili fossili: La combustione di carbone, petrolio e gas naturale per la produzione di energia è una delle principali fonti di emissioni di CO2. Questi combustibili vengono utilizzati per la produzione di elettricità, il riscaldamento domestico e industriale, nonché per il trasporto.
+
+              Industria: Alcuni processi industriali, come la produzione di cemento, acciaio, vetro e altri materiali, possono generare considerevoli quantità di CO2. La calcinazione del calcare durante la produzione di cemento, ad esempio, rilascia anidride carbonica.
+
+              Trasporto: Il settore dei trasporti è una significativa fonte di emissioni di CO2, principalmente attraverso l'uso di carburanti fossili nei veicoli a motore. Auto, camion, aerei e navi che utilizzano benzina, diesel e carburanti correlati contribuiscono in modo significativo alle emissioni complessive.
+
+              Deforestazione: La deforestazione, ovvero il disboscamento delle foreste senza successiva riforestazione, può aumentare i livelli di CO2 in atmosfera. Le piante assorbono naturalmente la CO2 durante la fotosintesi, e la rimozione delle foreste riduce la capacità della terra di agire come sumidouro di carbonio.
+
+              Agricoltura: Alcune pratiche agricole, come l'uso di fertilizzanti azotati e la gestione del bestiame, possono portare alla produzione di gas serra, compresa la CO2. Inoltre, le modifiche nei modelli di uso del suolo possono influenzare le emissioni di carbonio nel suolo.
+
+              Rifiuti: Il processo di decomposizione dei rifiuti organici in discarica produce metano (CH4), un potente gas serra. La combustione di rifiuti solidi, inoltre, può contribuire alle emissioni di CO2.
+
+              Affrontare queste fonti di emissioni è essenziale per mitigare gli impatti dei cambiamenti climatici. Molti paesi stanno adottando politiche e tecnologie mirate a ridurre l'uso di combustibili fossili, migliorare l'efficienza energetica, promuovere energie rinnovabili e attuare pratiche agricole sostenibili per affrontare la sfida delle emissioni di CO2.
+              </h3>
+              
+
+            <h2> Sapendo che l'Italia in media produce un totale di 0.5 tonnellate di CO2 all'anno prova a immaginare quanta CO2 viene prodotta al mondo e come è divisa nei vari settori.</h2>
+            <h2> P.S. Se tutto il mondo inquinasse quanto l'Italia produrremo 66 tonnelate di CO2 all'anno</h2>
+            
+            <pre>
+            </pre>
+                <div class="titre">Energia per l'industria:</div>
+                <div id="red" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all ">
+                    <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 25%;"></span>
+                </div>
+                <div class="titre">Energia per gli edifici :</div>
+                <div id="green" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                  <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 25%;"></span>
+                </div>
+                <div class="titre">Trasporti:</div>
+                <div id="blue" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                  <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 25%;"></span></div>
+                <div class="titre">Agricoltura e allevamenti:</div>
+                <div id="yellow" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                  <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 25%;"></span></div>
+                <div class="titre">Spreco:</div>
+                <div id="sienna" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                  <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 25%;"></span></div>
+                <div class="titre">Energia dispersa durante la produzione:</div>
+                <div id="gold" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                  <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 25%;"></span></div>
+                <div class="titre">Emissioni di provenienza sconosciuta:</div>
+                <div id="violet" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                  <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 25%;"></span></div>
+
+          
+                <canvas id="myChart" style="width: 350px; height: 350px;" width="350" height="350"></canvas>
+                
+                <div class="centrato">
+                  <button onclick="valoriveri()" type="button" class="btn btn-dark">Premi qui per conoscere i veri valori!</button>
+                </div>
+
+
+                <script type="text/javascript" src="public/torta.js"></script>
+
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="container">
+          <pre class="title"> Inquinamento dell'aria in Italia
+          </pre>
+
+
+          <h3 style="white-space: pre-line">
+            Le particelle sottili, con un diametro di 2,5 micron o meno, note come PM2.5, sono una forma di inquinamento atmosferico costituita da particelle solide o liquide sospese nell'aria. La principale causa di PM2.5 nell'aria è legata a varie attività umane e processi naturali. Ecco alcune delle principali cause di PM2.5:
+
+            Combustione di combustibili fossili: La combustione di carbone, petrolio e gas naturale nelle centrali elettriche, nei veicoli a motore, nei processi industriali e nelle attività domestiche è una delle principali fonti di particolato sottile. Questo tipo di attività rilascia una serie di inquinanti atmosferici, tra cui PM2.5.
+
+            Trasporto: Il traffico veicolare è una significativa fonte di PM2.5, poiché i motori a combustione interna emettono particelle durante la combustione del carburante. Le emissioni provenienti da veicoli diesel, in particolare, possono contenere quantità elevate di PM2.5.
+
+            Industria: I processi industriali, come la produzione di cemento, acciaio e altri materiali, possono generare particelle fini come sottoprodotto delle attività industriali.
+
+            Riscaldamento domestico: L'uso di legna da ardere, carbone e altri combustibili per il riscaldamento domestico può contribuire significativamente alle emissioni di PM2.5, specialmente in contesti in cui non sono adottate tecnologie di combustione pulita.
+
+            Attività agricole: L'agricoltura può contribuire alle emissioni di PM2.5 attraverso processi come l'aratura del suolo e l'uso di fertilizzanti. Inoltre, la gestione del bestiame può generare particelle di polvere.
+
+            Incendi boschivi: Gli incendi, sia naturali che causati dall'uomo, possono rilasciare grandi quantità di PM2.5 nell'atmosfera a causa della combustione della vegetazione.
+
+            Processi naturali: Alcuni processi naturali, come le tempeste di sabbia e le eruzioni vulcaniche, possono innalzare i livelli di particolato nell'aria.
+
+            Le particelle PM2.5 sono preoccupanti perché, a causa delle loro dimensioni estremamente ridotte, possono penetrare profondamente nei polmoni e persino entrare nella circolazione sanguigna. Ciò può avere gravi implicazioni per la salute umana, aumentando il rischio di malattie respiratorie, cardiovascolari e altri problemi di salute. Per affrontare il problema del PM2.5, è essenziale adottare politiche e pratiche che riducano le emissioni da fonti antropiche e migliorino la qualità dell'aria.
+            </h3>
+
+          <h2>prova a indovinare il livello di PM2.5 nelle città del mondo e poi scopri il vero valore:</h2>
+
+          <div class="card-group">
+            <div class="card bg-light text-dark">
+              <img class="card-img-top" src="public/brescia-hotels.webp" alt="Loggia di Brescia">
+              <div class="card-body">
+                <h5 class="card-title">Brescia</h5>
+                <p id="ariabrescia"></p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted" id="lastupdatebrescia"></small>
+                <script> getQuality('Brescia', 'ariabrescia', 'lastupdatebrescia') </script>
+              </div>
+            </div>
+            <div class="card bg-light text-dark">
+              <img class="card-img-top" src="public/Quartiere-malfamato-a-Milano-le-(1).jpg" alt="Duomo di Milano">
+              <div class="card-body">
+                <h5 class="card-title">Milano</h5>
+                <p id="ariamilano"></p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted" id="lastupdatemilano"></small>
+                <script> getQuality('Milano', 'ariamilano', 'lastupdatemilano') </script>
+              </div>
+            </div>
+            <div class="card bg-light text-dark">
+              <img class="card-img-top" src="public/Parigi-AdobeStock.jpg" alt="Tour Eiffel a Parigi">
+              <div class="card-body">
+                <h5 class="card-title">Parigi</h5>
+                <p id="ariaparigi"></p>
+                </div>
+              <div class="card-footer">
+                <small class="text-muted" id="lastupdateparigi"></small>
+                <script> getQuality('Paris', 'ariaparigi', 'lastupdateparigi') </script>
+              </div>
+            </div>
+          </div>
+
+
+
+          <section>
+            <div class="container" align="center">
+                <form id="form-input" class="row g-3">
+                    <div>
+                        <label class="form-label">Città</label>
+                        <input type="text" id="city" class="form-control" placeholder="Città" aria-label="Name" aria-describedby="basic-addon2" autocomplete="off">
+                    </div>
+                    <div>
+                        <button onclick="getQualityCity('cittàselezionata')" class="btn btn-outline-secondary" id="searchcity" type="button">Cerca</button>
+                    </div>
+                </form>
+            </div>
+
+            <p id="cittàselezionata"></p>
+
+
+        </div>
+      </div>
+
+
+      <div class="carousel-item">
+        <div class="container">
+          <pre class="title"> Quiz Finale!
+          </pre>
+
+          <h2>Metti alla prova ciò che hai appreso con le seguenti domande:</h2>
+
+          <div>
+            <table style="width:583px">
+	<tr>
+	  <td>
+	  	<div>
+	  		<p class="question">1. Quale paese produce piu CO2 al mondo?</p>
+
+	    	<ul>
+	    	<input class="answer" type="radio" name="q1" value="1">
+	        <label id="correctString1">Cina</label>
+	    	<br>
+	        <input class="answer" type="radio" name="q1" value="0">
+	        <label>USA</label>
+	        <br>
+	        <input class="answer" type="radio" name="q1" value="0">
+	        <label>Italia</label>
+	        <br>
+	        <input class="answer" type="radio" name="q1" value="0">
+	        <label>Russia</label>
+    		</ul>
+	  	</div>
+	  </td>
+	  <td>
+	  	<div>
+	  		<p class="question">2. Qual è la maggior fonte di CO2?</p>
+
+	    	<ul>
+	        <input class="answer" type="radio" name="q2" value="0">
+	        <label>Agricoltura</label>
+	        <br>
+	        <input class="answer" type="radio" name="q2" value="1">
+	        <label id="correctString2">Riscaldamento</label>
+	        <br>
+	        <input class="answer" type="radio" name="q2" value="0">
+	        <label>Industrie</label>
+	        <br>
+	        <input class="answer" type="radio" name="q2" value="0">
+	        <label>Petrolio</label>
+	    	</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	  	<div>
+	  		<p class="question">3. Qual è la città piu inquinata d'italia?</p>
+
+	    	<ul>
+	        <input class="answer" type="radio" name="q3" value="0">
+	        <label>Roma</label>
+	        <br>
+	        <input class="answer" type="radio" name="q3" value="1">
+	        <label id="correctString3">Milano</label>
+	        <br>
+	        <input class="answer" type="radio" name="q3" value="0">
+	        <label>Napoli</label>
+	        <br>
+	        <input class="answer" type="radio" name="q3" value="0">
+	        <label>Brescia</label>
+	    	</ul>
+		</div>
+	  </td>
+	  <td>
+	  	<div>
+	  		<p class="question">4. Cosa vuol dire PM2.5?</p>
+
+	    	<ul>
+	        <input class="answer" type="radio" name="q4" value="0">
+	        <label>Un gas cancerogeno</label>
+	        <br>
+	        <input class="answer" type="radio" name="q4" value="1">
+	        <label id="correctString4">Delle polveri di una certa dimensione</label>
+	        <br>
+	        <input class="answer" type="radio" name="q4" value="0">
+	        <label>Uno scarto dell'industria petrol-chimica</label>
+	        <br>
+	        <input class="answer" type="radio" name="q4" value="0">
+	        <label>Un unità di misura</label>
+    		</ul>
+	  	</div>
+	  </td>
+	</tr>
+	</table>
+<br/>
+  <div class="submitter">
+          <input class="quizSubmit" id="submitButton" onClick="submitQuiz()"
+          type="submit" value="Submit" />
+    </div>
+  
+<!--show only wrong answers on submit-->
+    <div class="quizAnswers" id="correctAnswer1"></div>
+	    <div class="quizAnswers" id="correctAnswer2"></div>
+    <div class="quizAnswers" id="correctAnswer3"></div>
+    <div class="quizAnswers" id="correctAnswer4"></div>
+
+<!--show score upon submit-->
+    <div>
+    	<h2 class="quizScore" id="userScore"></h2>
+    </div>
+
+            
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  
+
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    <footer class="bg-dark py-3 mt-auto">
+            <div class="container px-4">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto">
+                        <div class="small m-0 text-white">
+                            Copyright &copy; Interactive Pollution
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="http://127.0.0.1:8080/privacy">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="http://127.0.0.1:8080/terms">Terms</a>
+                </div>
+            </div>
+        </footer>   
+</main>   
+  </body>
+</html>
